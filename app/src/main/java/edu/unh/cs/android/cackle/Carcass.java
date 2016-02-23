@@ -36,7 +36,7 @@ public class Carcass implements Parcelable {
   }
 
   public static List<Integer> availibleDifficultyLevels() {
-    return Arrays.asList(Color.GREEN, Color.YELLOW, Color.RED, Color.BLACK);
+    return Arrays.asList(Color.GREEN, Color.rgb(100, 100, 0), Color.RED, Color.BLACK);
   }
 
   public static int getDrawableId(Carcass carcass) {

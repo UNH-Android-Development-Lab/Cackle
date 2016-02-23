@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
-    Firebase.setAndroidContext(getBaseContext());
+    Firebase.setAndroidContext(this);
 
     Firebase firebaseRef = new Firebase("https://cackle.firebaseio.com/");
 
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
     List<Carcass> testWateringHole =
-        Collections.singletonList(new Carcass(1, 650000, "MUB", "320", "Mosaico", Color.YELLOW));
+        Collections.singletonList(new Carcass(1, 650000, "MUB", "320", "Mosaico", Color.rgb(100, 100, 0)));
 
     WateringHoleAdapter wateringHoleAdapter = new WateringHoleAdapter(testWateringHole);
 

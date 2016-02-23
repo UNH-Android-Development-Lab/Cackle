@@ -3,9 +3,9 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                tools:background="#F00"
                 android:layout_margin="3dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:background="#F00">
 
     <ImageView
         android:id="@+id/event_food_image"
@@ -13,16 +13,17 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="3dp"
         android:layout_alignParentTop="true"
+        android:layout_margin="3dp"
         tools:src="@drawable/pizza"/>
 
     <TextView
         android:id="@+id/event_time_building_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="3dp"
         android:layout_toEndOf="@id/event_food_image"
+        android:textColor="#FFF"
         android:textSize="16sp"
         tools:text="2/16 - 7pm - MUB320"/>
 
@@ -31,8 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/event_time_building_room"
-        android:layout_margin="30dp"
+        android:layout_margin="3dp"
         android:layout_toEndOf="@id/event_food_image"
+        android:textColor="#FFF"
         android:textSize="16sp"
         tools:text="Mosaico"/>
 </RelativeLayout>
