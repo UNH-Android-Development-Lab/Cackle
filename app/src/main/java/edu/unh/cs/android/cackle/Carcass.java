@@ -17,7 +17,7 @@ public class Carcass implements Parcelable {
     public final static int GREEN = 0;
     public final static int YELLOW = 1;
     public final static int RED = 2;
-    public final static int BLACK = 3; //faculty meeting
+    public final static int BLACK = 3;
   }
 
   int time;
