@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
     Firebase firebaseRef = new Firebase("https://cackle.firebaseio.com/");
 
+    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+    EventAdapter eventAdapter = new EventAdapter();
+    LinearLayoutManager llm = new LinearLayoutManager(this);
+    recyclerView.setLayoutManager(llm);
+    recyclerView.setAdapter(eventAdapter);
   }
 
   @Override

@@ -10,11 +10,9 @@ import android.view.ViewGroup;
  */
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventAdapterViewHolder> {
 
-  EventAdapter(MainActivity mainActivity) {
-  }
-
   @Override
   public EventAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
     return new EventAdapterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.event_item, parent, false));
   }
 
