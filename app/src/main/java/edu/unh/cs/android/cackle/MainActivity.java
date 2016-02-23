@@ -1,6 +1,5 @@
 package edu.unh.cs.android.cackle;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         Collections.singletonList(new Carcass(1, 650000, "MUB", "320", "Mosaico", Color.YELLOW));
 
     WateringHoleAdapter wateringHoleAdapter = new WateringHoleAdapter(testWateringHole);
+
     LinearLayoutManager llm = new LinearLayoutManager(this);
     recyclerView.setLayoutManager(llm);
     recyclerView.setAdapter(wateringHoleAdapter);

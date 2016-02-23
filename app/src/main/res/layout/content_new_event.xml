@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_new_event"
-    tools:context="edu.unh.cs.android.cackle.NewEventActivity">
+    tools:context="edu.unh.cs.android.cackle.NewEventActivity"
+    tools:showIn="@layout/activity_new_event">
 
     <EditText
         android:id="@+id/eventNameEditText"
-        android:hint="@string/event_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:hint="@string/event_name"/>
 
     <EditText
         android:id="@+id/eventLocationEditText"
-        android:hint="@string/event_location"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/eventNameEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:hint="@string/event_location"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/lblDate"
@@ -48,13 +48,13 @@
 
         <Button
             android:id="@+id/btnDatePicker"
-            android:text="@string/datepicker"
-            style="@style/DTP.Button"/>
+            style="@style/DTP.Button"
+            android:text="@string/datepicker"/>
 
         <Button
             android:id="@+id/btnTimePicker"
-            android:text="@string/timepicker"
-            style="@style/DTP.Button"/>
+            style="@style/DTP.Button"
+            android:text="@string/timepicker"/>
 
     </LinearLayout>
 
