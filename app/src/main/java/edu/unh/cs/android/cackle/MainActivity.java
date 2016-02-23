@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     Firebase.setAndroidContext(getBaseContext());
 
-    Firebase chuckFirebaseRef = new Firebase("https://cackle.firebaseio.com/");
+    Firebase firebaseRef = new Firebase("https://cackle.firebaseio.com/");
 
   }
 
