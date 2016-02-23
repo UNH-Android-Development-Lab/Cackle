@@ -1,5 +1,6 @@
 package edu.unh.cs.android.cackle;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.firebase.client.Firebase;
+
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,10 +39,14 @@ public class MainActivity extends AppCompatActivity {
     Firebase firebaseRef = new Firebase("https://cackle.firebaseio.com/");
 
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-    EventAdapter eventAdapter = new EventAdapter();
+
+    List<Carcass> testWateringHole =
+        Collections.singletonList(new Carcass(1, 650000, "MUB", "320", "Mosaico", Color.YELLOW));
+
+    WateringHoleAdapter wateringHoleAdapter = new WateringHoleAdapter(testWateringHole);
     LinearLayoutManager llm = new LinearLayoutManager(this);
     recyclerView.setLayoutManager(llm);
-    recyclerView.setAdapter(eventAdapter);
+    recyclerView.setAdapter(wateringHoleAdapter);
   }
 
   @Override

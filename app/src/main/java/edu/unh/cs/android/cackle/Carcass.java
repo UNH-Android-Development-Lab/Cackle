@@ -1,31 +1,30 @@
 package edu.unh.cs.android.cackle;
 
+import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Chris Oelerich on 2/22/16.
  */
 public class Carcass implements Parcelable {
-
-  public class Type {
-    public final static int PIZZA = 0;
-    public final static int SUBS = 1;
-  }
-
-  public class Difficulty {
-    public final static int GREEN = 0;
-    public final static int YELLOW = 1;
-    public final static int RED = 2;
-    public final static int BLACK = 3;
-  }
-
   int time;
   int food_type;
   String building;
   String room;
   String victim;
   int difficulty;
+
+  public Carcass(int food_type, int time, String building, String room, String victim, int difficulty) {
+    this.food_type = food_type;
+    this.time = time;
+    this.room = room;
+    this.victim = victim;
+    this.difficulty = difficulty;
+  }
 
   private Carcass(Parcel in) {
     food_type = in.readInt();
@@ -34,6 +33,28 @@ public class Carcass implements Parcelable {
     room = in.readString();
     victim = in.readString();
     difficulty = in.readInt();
+  }
+
+  public List<Integer> getDifficultyLevels() {
+    return Arrays.asList(Color.GREEN, Color.YELLOW, Color.RED, Color.BLACK);
+  }
+
+  public int getDrawableId(Carcass carcass) {
+
+    int drawableId = 0;
+
+    switch (carcass.food_type) {
+      case Type.PIZZA:
+        drawableId = R.drawable.pizza;
+        break;
+
+    }
+    return drawableId;
+  }
+
+  public class Type {
+    public final static int PIZZA = 1;
+    public final static int SUBS = 2;
   }
 
   public static final Parcelable.Creator<Carcass> CREATOR = new Parcelable.Creator<Carcass>() {

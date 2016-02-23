@@ -5,10 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 /**
  * Created by Chris Oelerich on 2/22/16.
  */
-public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventAdapterViewHolder> {
+public class WateringHoleAdapter extends RecyclerView.Adapter<WateringHoleAdapter.EventAdapterViewHolder> {
+
+  List<Carcass> wateringHole;
+
+  WateringHoleAdapter(List<Carcass> wateringHole) {
+    this.wateringHole = wateringHole;
+  }
 
   @Override
   public EventAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -18,10 +26,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventAdapter
 
   @Override
   public void onBindViewHolder(EventAdapterViewHolder holder, final int position) {
+
   }
 
   public int getItemCount() {
-    return 5;
+    if (wateringHole != null)
+      return wateringHole.size();
+    else return 0;
   }
 
   public static class EventAdapterViewHolder extends RecyclerView.ViewHolder {
@@ -29,5 +40,4 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventAdapter
       super(itemView);
     }
   }
-
 }
