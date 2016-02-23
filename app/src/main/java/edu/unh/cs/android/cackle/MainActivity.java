@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    Firebase.setAndroidContext(getBaseContext());
+
     Firebase chuckFirebaseRef = new Firebase("https://cackle.firebaseio.com/");
 
   }
