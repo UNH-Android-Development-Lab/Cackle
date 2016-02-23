@@ -34,3 +34,18 @@ captures/
 
 # Intellij
 *.iml
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio
+.idea/
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.iws
+*.ipr
+*~
+*.swp
