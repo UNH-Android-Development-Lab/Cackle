@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="difficultyGreen">#A5FF92</color>
+    <color name="difficultyYellow">#FCF698</color>
+    <color name="difficultyRed">#FF9785</color>
+    <color name="difficultyBlack">#8C8677</color>
 </resources>

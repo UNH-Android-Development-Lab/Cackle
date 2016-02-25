@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class WateringHoleAdapter extends RecyclerView.Adapter<WateringHoleAdapter.EventAdapterViewHolder> {
 
-  private static final String TAG = MainActivity.class.getSimpleName();
+  private static final String TAG = WateringHoleAdapter.class.getSimpleName();
 
   List<Carcass> wateringHole;
 

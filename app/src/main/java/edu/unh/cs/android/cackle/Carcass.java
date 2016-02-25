@@ -18,9 +18,36 @@ public class Carcass implements Parcelable {
   String victim;
   int difficulty;
 
+  public int getTime() {
+    return time;
+  }
+
+  public int getFood_type() {
+    return food_type;
+  }
+
+  public String getBuilding() {
+    return building;
+  }
+
+  public String getRoom() {
+    return room;
+  }
+
+  public String getVictim() {
+    return victim;
+  }
+
+  public int getDifficulty() {
+    return difficulty;
+  }
+
+  public Carcass() {} // Needed for Firebase to deserialize the data
+
   public Carcass(int food_type, int time, String building, String room, String victim, int difficulty) {
     this.food_type = food_type;
     this.time = time;
+    this.building = building;
     this.room = room;
     this.victim = victim;
     this.difficulty = difficulty;
