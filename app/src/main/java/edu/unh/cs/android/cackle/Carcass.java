@@ -1,6 +1,8 @@
 package edu.unh.cs.android.cackle;
 
 import android.graphics.Color;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +10,9 @@ import java.util.List;
 /**
  * Created by Chris Oelerich on 2/22/16.
  */
-public class Carcass {
+public class Carcass implements Parcelable {
   int time;
-  int foodType;
+  int food_type;
   String building;
   String room;
   String victim;
@@ -20,8 +22,8 @@ public class Carcass {
     return time;
   }
 
-  public int getFoodType() {
-    return foodType;
+  public int getFood_type() {
+    return food_type;
   }
 
   public String getBuilding() {
@@ -43,12 +45,21 @@ public class Carcass {
   public Carcass() {} // Needed for Firebase to deserialize the data
 
   public Carcass(int food_type, int time, String building, String room, String victim, int difficulty) {
-    this.foodType = food_type;
+    this.food_type = food_type;
     this.time = time;
     this.building = building;
     this.room = room;
     this.victim = victim;
     this.difficulty = difficulty;
+  }
+
+  private Carcass(Parcel in) {
+    food_type = in.readInt();
+    time = in.readInt();
+    building = in.readString();
+    room = in.readString();
+    victim = in.readString();
+    difficulty = in.readInt();
   }
 
   public static List<Integer> availibleDifficultyLevels() {
@@ -59,7 +70,7 @@ public class Carcass {
 
     int drawableId = 0;
 
-    switch (carcass.foodType) {
+    switch (carcass.food_type) {
       case Type.PIZZA:
         drawableId = R.drawable.pizza;
         break;
@@ -71,5 +82,32 @@ public class Carcass {
   public class Type {
     public final static int PIZZA = 1;
     public final static int SUBS = 2;
+  }
+
+  public static final Parcelable.Creator<Carcass> CREATOR = new Parcelable.Creator<Carcass>() {
+    @Override
+    public Carcass createFromParcel(Parcel in) {
+      return new Carcass(in);
+    }
+
+    @Override
+    public Carcass[] newArray(int size) {
+      return new Carcass[size];
+    }
+  };
+
+  @Override
+  public void writeToParcel(Parcel out, int flags) {
+    out.writeInt(food_type);
+    out.writeInt(time);
+    out.writeString(building);
+    out.writeString(room);
+    out.writeString(victim);
+    out.writeInt(difficulty);
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
   }
 }
