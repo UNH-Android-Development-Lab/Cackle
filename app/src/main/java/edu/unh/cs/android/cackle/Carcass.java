@@ -4,21 +4,23 @@ import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 /**
  * Created by Chris Oelerich on 2/22/16.
  */
 public class Carcass implements Parcelable {
-  int time;
+  long time;
   int food_type;
   String building;
   String room;
   String victim;
   int difficulty;
 
-  public int getTime() {
+  public long getTime() {
     return time;
   }
 
@@ -44,13 +46,20 @@ public class Carcass implements Parcelable {
 
   public Carcass() {} // Needed for Firebase to deserialize the data
 
-  public Carcass(int food_type, int time, String building, String room, String victim, int difficulty) {
+  public Carcass(int food_type, long time, String building, String room, String victim, int difficulty) {
     this.food_type = food_type;
     this.time = time;
     this.building = building;
     this.room = room;
     this.victim = victim;
     this.difficulty = difficulty;
+  }
+
+  public String formatTime() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTimeInMillis(time);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yy H:mm");
+    return dateFormat.format(cal.getTime());
   }
 
   private Carcass(Parcel in) {
@@ -99,7 +108,7 @@ public class Carcass implements Parcelable {
   @Override
   public void writeToParcel(Parcel out, int flags) {
     out.writeInt(food_type);
-    out.writeInt(time);
+    out.writeLong(time);
     out.writeString(building);
     out.writeString(room);
     out.writeString(victim);

@@ -56,7 +56,7 @@ public class WateringHoleAdapter extends RecyclerView.Adapter<WateringHoleAdapte
     foodImage.setImageDrawable(
         ContextCompat.getDrawable(itemView.getContext(), Carcass.getDrawableId(carcass)));
 
-    String string = carcass.time + " | " + carcass.building + " | " + carcass.room;
+    String string = carcass.formatTime() + " | " + carcass.building + " | " + carcass.room;
 
     timeBuildingRoom.setText(string);
 

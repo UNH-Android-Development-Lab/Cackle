@@ -1,14 +1,19 @@
 package edu.unh.cs.android.cackle;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.datetimepicker.date.DatePickerDialog;
 import com.android.datetimepicker.time.RadialPickerLayout;
 import com.android.datetimepicker.time.TimePickerDialog;
+import com.firebase.client.Firebase;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -40,6 +45,34 @@ public class NewEventActivity extends AppCompatActivity implements DatePickerDia
         lblTime = (TextView) findViewById(R.id.lblTime);
 
         update();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_new_event, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.action_submit_event) {
+            Carcass freshMeat = new Carcass(
+                        Carcass.Type.PIZZA,
+                        calendar.getTimeInMillis(),
+                        ((EditText)findViewById(R.id.eventLocationEditText)).getText().toString(),
+                        "room #",
+                        ((EditText)findViewById(R.id.eventNameEditText)).getText().toString(),
+                        ContextCompat.getColor(this, R.color.difficultyGreen)
+                    );
+
+            Firebase firebaseRef = new Firebase("https://cackle.firebaseio.com/");
+            firebaseRef.child("carcasses").push().setValue(freshMeat);
+
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void update() {
